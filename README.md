@@ -31,7 +31,7 @@ A **responsive movie website** built with **React** that allows users to explore
 
 ##Deployment
 
--The project is deployed on Netlify.[**You can access it here**](https://reactjs.org/)
+-The project is deployed on Netlify.[**You can access it here**](https://rk-movie-website.netlify.app/)
 
 ## License
 
