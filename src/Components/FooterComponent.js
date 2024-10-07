@@ -6,37 +6,37 @@ const FooterComponent = () => {
 
     return (
         <footer className="footer">
-            <div className="container">
-                <div className="column">
-                    <h4 className="heading">About Us</h4>
-                    <p className="text">We are dedicated to providing the best movie experience.</p>
+            <div className="fcontainer">
+                <div className="fcolumn">
+                    <h4 className="fheading">About Us</h4>
+                    <p className="ftext">We are dedicated to providing the best movie experience.</p>
                 </div>
-                <div className="column">
-                    <h4 className="heading">Quick Links</h4>
-                    <ul className="list">
-                        <li className="listItem"><a href="/">Home</a></li>
-                        <li className="listItem"><a href="/about">About</a></li>
-                        <li className="listItem"><a href="/contactform">Contact</a></li>
-                        <li className="listItem"><a href="/privacypolicy">Privacy Policy</a></li>
+                <div className="fcolumn">
+                    <h4 className="fheading">Quick Links</h4>
+                    <ul className="flist">
+                        <li className="flistItem"><a href="/">Home</a></li>
+                        <li className="flistItem"><a href="/about">About</a></li>
+                        <li className="flistItem"><a href="/contactform">Contact</a></li>
+                        <li className="flistItem"><a href="/privacypolicy">Privacy Policy</a></li>
                     </ul>
                 </div>
-                <div className="column">
-                    <h4 className="heading">Follow Us</h4>
-                    <div className="socialLinks">
-                        <a href="https://facebook.com" className="socialLink">
+                <div className="fcolumn">
+                    <h4 className="fheading">Follow Us</h4>
+                    <div className="fsocialLinks">
+                        <a href="https://facebook.com" className="fsocialLink">
                             <i className="fab fa-facebook-f"></i> Facebook
                         </a>
-                        <a href="https://twitter.com" className="socialLink">
+                        <a href="https://twitter.com" className="fsocialLink">
                             <i className="fab fa-twitter"></i> Twitter
                         </a>
-                        <a href="https://instagram.com" className="socialLink">
+                        <a href="https://instagram.com" className="fsocialLink">
                             <i className="fab fa-instagram"></i> Instagram
                         </a>
                     </div>
                 </div>
             </div>
-            <div className="bottom">
-                <p className="text">© {currentYear} Movie Website. All rights reserved.</p>
+            <div className="fbottom">
+                <p className="ftext">© {currentYear} Movie Website. All rights reserved.</p>
             </div>
         </footer>
     );

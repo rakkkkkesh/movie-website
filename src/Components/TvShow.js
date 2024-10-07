@@ -5,8 +5,9 @@ import CardComponent from './CardComponent';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import SearchBar from './SearchBar';
+import '../Styles/TvShow.css'
 
-const TvShow = ({isDarkMode, toggleDarkMode}) => {
+const TvShow = ({ isDarkMode, toggleDarkMode }) => {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
@@ -56,46 +57,53 @@ const TvShow = ({isDarkMode, toggleDarkMode}) => {
 
   return (
     <div>
-     <NavbarComponent 
-       isDarkMode={isDarkMode} 
-        toggleDarkMode={toggleDarkMode}/>
+      <NavbarComponent
+        isDarkMode={isDarkMode}
+        toggleDarkMode={toggleDarkMode} />
       <SearchBar
         search={search}
         setSearch={(value) => {
           setSearch(value);
-          searchTvShows(value); 
+          searchTvShows(value);
         }}
-        isDarkMode={isDarkMode} 
+        isDarkMode={isDarkMode}
         toggleDarkMode={toggleDarkMode}
       />
 
       {error && <div className="error-message" style={{ color: 'red', textAlign: 'center' }}>{error}</div>}
 
-      {/* Display skeleton for carousel while loading */}
       {loading ? (
-        <div style={{ textAlign: 'center', margin: '20px 0' }}>
-          <Skeleton height={400} count={1} style={{ marginBottom: '20px' }} />
+    <div className='mainSkeleton'>
+        <Skeleton height={600} style={{borderRadius: '10px' }} />
+        <div className='crslsubSkeleton'>
+            <Skeleton className='crslSkeleton' height={50} width={'30%'} />
+            <Skeleton className='crslSkeleton' height={80} width={'100%'} />
+            <Skeleton className='crslSkeleton' height={40} width={'10%'} />
         </div>
-      ) : (
+    </div>
+) : (
+    <>
         <CarouselComponent data={data} />
-      )}
+        <div className="divider"></div>
+    </>
+)}
 
-      <div className="divider"></div>
       <h2 className='heading'>Popular TV Shows</h2>
       <div className="heading-line"></div>
-      <section className="card-section">
+      <section className="tv-show-section">
         {loading ? (
           [...Array(10)].map((_, index) => (
-            <Skeleton
-              key={index}
-              height={300}
-              width={200}
-              className="card-skeleton"
-              style={{ borderRadius: '10px', margin: '20px' }} // Custom styling for cards
-            />
+            <div key={index} className="card-skeleton">
+              <Skeleton height={400} width={'20rem'} style={{ borderRadius: '10px', padding: '0', margin:'0'}} />
+              <div className="cardSubSkeleton">
+                <Skeleton className='cardSkeleton' height={40} width={'80%'} />
+                <Skeleton className='cardSkeleton' height={30} width={'40%'}/>
+                <Skeleton className='cardSkeleton' height={30} width={'40%'} />
+              </div>
+            </div>
           ))
         ) : (
-          data && data.map((item) => <CardComponent key={item.id} item={item} />)
+          data && data.map((item) => <CardComponent key={item.id} item={item} isDarkMode={isDarkMode} />)
         )}
       </section>
       <div className="divider"></div>

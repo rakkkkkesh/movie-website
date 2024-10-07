@@ -2,6 +2,7 @@
     background-color: #f8f9fa;
     border-bottom: 2px solid #979797;
     width: 100%;
+    padding: 1rem 2rem;
 }
 
 .navbar-brand {
@@ -19,7 +20,7 @@
 }
 
 .navbar-nav .nav-link:hover {
-    color: #007bff;
+    color: #838486;
     transform: scale(1.1);
     transition: 0.3s all ease-in-out;
 }
@@ -30,33 +31,52 @@
     border-bottom: 2px solid #28a745;
 }
 
-/* Dark mode styles */
 body.dark-mode {
     background-color: black;
     color: white;
-  }
-  
-  .navbar.dark-mode {
+}
+
+.navbar.dark-mode {
     background-color: #333 !important;
     color: white;
     border-bottom: 2px solid white;
-  }
-  
-  .navbar-dark .nav-link {
-    color: white;
-  }
-  
-  .navbar-dark .nav-link.active {
-    color: #999;
-  }
+}
 
+.navbar-dark .nav-link {
+    color: white;
+}
+
+.navbar-dark .nav-link.active {
+    color: #999;
+}
+
+.navbar-toggler {
+    width: auto;
+    margin-left: auto;
+}
 
 @media (max-width: 576px) {
     .navbar-nav .nav-link {
         font-size: 0.9rem;
     }
+
     .navbar-brand {
         font-size: 1.3rem;
         margin-left: 20px;
+    }
+
+    .navbar-toggler {
+        width: auto;
+        padding: 0.5rem;
+        font-size: 1.2rem;
+        margin-left: auto;
+    }
+
+    .navbar-collapse {
+        text-align: center;
+    }
+    
+    .navbar-collapse .navbar-nav {
+        flex-direction: column;
     }
 }

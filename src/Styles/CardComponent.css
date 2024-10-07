@@ -51,19 +51,19 @@
 }
 
 .dark-mode {
-    background-color: #343a40; /* Dark background */
+    background-color: #343a40;
 }
 
 .light-mode {
-    background-color: #ffffff; /* Light background */
+    background-color: #ffffff;
 }
 
 .text-light {
-    color: #f8f9fa; /* Light text color */
+    color: #f8f9fa;
 }
 
 .text-dark {
-    color: #212529; /* Dark text color */
+    color: #212529;
 }
 
 .button {
@@ -85,3 +85,32 @@
     transition: transform 0.5s ease;
 }
 
+@media (max-width: 768px) {
+    .card {
+        width: 90%; 
+        height: auto; 
+        margin: 10px auto; 
+    }
+
+    .card-img-top {
+        height: 200px; 
+    }
+
+    .text-overlay {
+        padding: 5px; 
+    }
+
+    .button {
+        width: 100%; 
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        margin: 5px; 
+    }
+
+    .card-img-top {
+        height: 150px; 
+    }
+}

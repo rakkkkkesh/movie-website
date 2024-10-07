@@ -72,17 +72,21 @@ const Home = ({isDarkMode, toggleDarkMode}) => {
           {error}
         </div>
       )}
-
-
-
-      {/* Show skeleton for carousel while loading */}
       {loading ? (
-        <div style={{ textAlign: 'center', margin: '20px 0', width: '100%', height: '600px', position: 'relative' }}>
-          <Skeleton height={600} width={'100%'} />
+    <div className='mainSkeleton'>
+        <Skeleton height={600} style={{borderRadius: '10px' }} />
+        <div className='crslsubSkeleton'>
+            <Skeleton className='crslSkeleton' height={50} width={'30%'} />
+            <Skeleton className='crslSkeleton' height={80} width={'100%'} />
+            <Skeleton className='crslSkeleton' height={40} width={'10%'} />
         </div>
-      ) : (
+    </div>
+) : (
+    <>
         <CarouselComponent data={data} />
-      )}
+        <div className="divider"></div>
+    </>
+)}
 
       <div className="divider"></div>
       <h2 className="heading">Popular Movies</h2>
@@ -90,16 +94,17 @@ const Home = ({isDarkMode, toggleDarkMode}) => {
       <section className="card-section">
         {loading ? (
           [...Array(10)].map((_, index) => (
-            <Skeleton
-              key={index}
-              height={300}
-              width={200}
-              className="card-skeleton"
-              style={{ borderRadius: '10px', margin: '20px' }} // Custom styling for cards
-            />
+            <div key={index} className="card-skeleton">
+              <Skeleton height={400} width={'20rem'} style={{ borderRadius: '10px', padding: '0', margin:'0'}} />
+              <div className="cardSubSkeleton">
+                <Skeleton className='cardSkeleton' height={40} width={'80%'} />
+                <Skeleton className='cardSkeleton' height={30} width={'40%'}/>
+                <Skeleton className='cardSkeleton' height={30} width={'40%'} />
+              </div>
+            </div>
           ))
         ) : (
-          data && data.map((item) => <CardComponent key={item.id} item={item} isDarkMode={isDarkMode}/>)
+          data && data.map((item) => <CardComponent key={item.id} item={item} isDarkMode={isDarkMode} />)
         )}
       </section>
       <div className="divider"></div>

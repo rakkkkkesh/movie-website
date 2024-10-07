@@ -74,16 +74,16 @@ const People = ({isDarkMode, toggleDarkMode}) => {
       <h2 className='heading'>Popular People</h2>
       <div className="heading-line"></div>
       <div className='people-container'>
-        {loading ? (
-          // Display skeletons for person cards while loading
+      {loading ? (
           [...Array(10)].map((_, index) => (
-            <Skeleton
-              key={index}
-              height={300}
-              width={200}
-              className="card-skeleton"
-              style={{ borderRadius: '10px', margin: '20px' }} // Custom styling for cards
-            />
+            <div key={index} className="card-skeleton">
+              <Skeleton height={400} width={'20rem'} style={{ borderRadius: '10px', padding: '0', margin:'0'}} />
+              <div className="cardSubSkeleton">
+                <Skeleton className='cardSkeleton' height={40} width={'80%'} />
+                <Skeleton className='cardSkeleton' height={30} width={'40%'}/>
+                <Skeleton className='cardSkeleton' height={30} width={'40%'} />
+              </div>
+            </div>
           ))
         ) : (
           data && data.map((person) => <PersonCard key={person.id} person={person} />)

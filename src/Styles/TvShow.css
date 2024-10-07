@@ -11,6 +11,7 @@
     flex-wrap: wrap;
     gap: 10px;
     width: 100%;
+    margin-top: 20px;
   }
 
   .heading {
@@ -18,7 +19,6 @@
     margin: 20px 0;
     font-size: 2rem; 
     font-weight: bold;
-    color: #e50914;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   }
 
@@ -39,6 +39,54 @@
     width: 80%; 
     background: linear-gradient(to right, transparent, #898989, transparent); 
   }
+
+  .mainSkeleton {
+    text-align: center;
+    margin: 40px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  
+  .crslsubSkeleton{
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    max-width: 80%;
+    margin: 0 auto;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+  opacity: 0.7;
+  }
+  
+  .crslSkeleton{
+      margin-bottom: 10px;
+  }
+  
+  .card-skeleton {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    position: relative;
+    background-color: transparent;
+  }
+
+.cardSubSkeleton{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;    
+  background-color: #e0e0e0;
+  border-radius: 0 0 10px 10px;
+}
+
+.cardSkeleton{
+  border-radius: 5px;
+  margin: 10px 20px;
+}
   
   @media (max-width: 768px) {
     .tv-show-section {

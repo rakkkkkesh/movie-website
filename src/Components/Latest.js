@@ -5,7 +5,7 @@ import CarouselComponent from './CarouselComponent';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import SearchBar from './SearchBar';
-
+import '../Styles/Latest.css'
 const Latest = ({isDarkMode, toggleDarkMode}) => {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
@@ -68,31 +68,38 @@ const Latest = ({isDarkMode, toggleDarkMode}) => {
 
       {error && <div className="error-message" style={{ color: 'red', textAlign: 'center' }}>{error}</div>}
 
-      {/* Show skeleton for carousel while loading */}
       {loading ? (
-        <div style={{ textAlign: 'center', margin: '20px 0' }}>
-          <Skeleton height={400} count={1} />
+    <div className='mainSkeleton'>
+        <Skeleton height={600} style={{borderRadius: '10px' }} />
+        <div className='crslsubSkeleton'>
+            <Skeleton className='crslSkeleton' height={50} width={'30%'} />
+            <Skeleton className='crslSkeleton' height={80} width={'100%'} />
+            <Skeleton className='crslSkeleton' height={40} width={'10%'} />
         </div>
-      ) : (
+    </div>
+) : (
+    <>
         <CarouselComponent data={data} />
-      )}
+        <div className="divider"></div>
+    </>
+)}
       
       <h2 className='heading'>Latest Movie</h2>
       <div className="heading-line"></div>
-      <section style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
+      <section className="card-section">
         {loading ? (
-          // Display skeletons for cards while loading
-          [...Array(1)].map((_, index) => (
-            <Skeleton
-              key={index}
-              height={300}
-              width={200}
-              className="card-skeleton"
-              style={{ borderRadius: '10px', margin: '20px' }} // Custom styling for cards
-            />
+          [...Array(10)].map((_, index) => (
+            <div key={index} className="card-skeleton">
+              <Skeleton height={400} width={'20rem'} style={{ borderRadius: '10px', padding: '0', margin:'0'}} />
+              <div className="cardSubSkeleton">
+                <Skeleton className='cardSkeleton' height={40} width={'80%'} />
+                <Skeleton className='cardSkeleton' height={30} width={'40%'}/>
+                <Skeleton className='cardSkeleton' height={30} width={'40%'} />
+              </div>
+            </div>
           ))
         ) : (
-          data && data.map((item) => <CardComponent key={item.id} item={item} />)
+          data && data.map((item) => <CardComponent key={item.id} item={item} isDarkMode={isDarkMode} />)
         )}
       </section>
       <div className="divider"></div>

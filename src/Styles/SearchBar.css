@@ -3,10 +3,13 @@
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px 20px;
     background-color: white;
     max-width: 600px;
     margin: 0 auto;
+    margin-bottom: 20px;
+    flex-wrap: nowrap;
+    position: relative;
 }
 
 .search-bar-container.dark-mode {
@@ -14,27 +17,55 @@
     color: white;
 }
 
+.search-bar-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, 
+        rgba(0, 0, 0, 0) 0%,
+        #007BFF 25%,
+        #da40f6 50%,
+        #007BFF 75%,
+        rgba(0, 0, 0, 0) 100% 
+    ); 
+}
+
+.search-bar-container.dark-mode::after {
+    background: linear-gradient(to right, 
+        rgba(255, 255, 255, 0) 0%,
+        #ffffff 25%,
+        #ffc107 50%,
+        #ffffff 75%,
+        rgba(255, 255, 255, 0) 100%
+    ); 
+}
+
+
 .search-input {
     border-radius: 10px;
     border: 1px solid #ced4da;
-    padding: 20px;
+    padding: 12px;
     transition: border 0.3s ease;
-    width: 100%;
+    width: 60%;
 }
 
 .search-input:focus {
     border-color: #80bdff;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
 .search-button {
     border-radius: 10px;
-    padding: 10px;
+    padding: 7px;
     color: white;
     background-color: #007BFF;
+    width: 20%;
 }
 
-.search-button:hover, .search-button:focus{
+.search-button:hover, .search-button:focus {
     background-color: #0b58aa;
 }
 
@@ -42,18 +73,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 40px;
 }
 
 .toggle-icon {
     cursor: pointer;
     font-size: 30px;
-    margin: 0;
+    margin: 0 10px 0 0;
 }
 
 .toggle-icon:hover {
     scale: 1.1;
-    transition: 0.2s ease-in-out;
+    transition: 0.2s all ease-in-out;
 }
 
 .toggle-icon.light {
@@ -63,3 +93,20 @@
 .toggle-icon.dark {
     color: white;
 }
+
+
+@media (max-width: 768px) {
+    .search-input {
+        width: 50%;
+    }
+
+    .search-button {
+        padding: 8px;
+    }
+
+    .toggle-icon {
+        font-size: 25px;
+    }
+}
+
+ 

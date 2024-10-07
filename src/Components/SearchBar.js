@@ -11,7 +11,7 @@ const SearchBar = ({ search, setSearch, onSearch, isDarkMode, toggleDarkMode }) 
     };
 
     return (
-        <Form className={`d-flex justify-content-center my-3 search-bar-container ${isDarkMode ? 'dark-mode' : ''}`} onSubmit={handleSearch}>
+        <Form className={`search-bar-container ${isDarkMode ? 'dark-mode' : ''}`} onSubmit={handleSearch}>
             <Form.Control
                 type="search"
                 placeholder="Search"

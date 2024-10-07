@@ -10,10 +10,10 @@ const CardComponent = ({ item, isDarkMode }) => {
 
     return (
         <motion.div
-            initial={{ opacity: 0, rotateY: 90 }}
+            initial={{ opacity: 0, rotateY: 60 }}
             whileInView={{ opacity: 1, rotateY: 0 }}
             exit={{ opacity: 0, rotateY: -90 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: false, amount: 0.1 }}
             className="card-wrapper"
         >
@@ -26,8 +26,8 @@ const CardComponent = ({ item, isDarkMode }) => {
                     />
                     <Card.Body className="card-body">
                         <div className="text-overlay">
-                            <Card.Title className={`card-title ${isDarkMode ? 'text-light' : 'text-dark'}`}>{title}</Card.Title>
-                            <Card.Text className={`card-text ${isDarkMode ? 'text-light' : 'text-dark'}`}>{item.vote_average}⭐</Card.Text>
+                            <Card.Title className="card-title">{title}</Card.Title>
+                            <Card.Text className="card-title">{item.vote_average}⭐</Card.Text>
                             <Button className="button" variant={isDarkMode ? 'light' : 'primary'}>See Details</Button>
                         </div>
                     </Card.Body>
