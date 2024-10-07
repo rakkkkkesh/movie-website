@@ -5,7 +5,7 @@
     border-radius: 15px;
     border: 2px solid white; 
     overflow: hidden; 
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9); 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.9); 
     transition: transform 0.2s; 
     position: relative; 
 }
@@ -92,25 +92,4 @@
         margin: 10px auto; 
     }
 
-    .card-img-top {
-        height: 200px; 
-    }
-
-    .text-overlay {
-        padding: 5px; 
-    }
-
-    .button {
-        width: 100%; 
-    }
-}
-
-@media (max-width: 480px) {
-    .card {
-        margin: 5px; 
-    }
-
-    .card-img-top {
-        height: 150px; 
-    }
 }

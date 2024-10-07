@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './Components/Home';
 import TvShow from './Components/TvShow';
 import Upcoming from './Components/Upcoming';
@@ -20,9 +20,20 @@ const App = () => {
     document.body.classList.toggle('dark-mode', !isDarkMode); // Apply dark mode to the body
   };
 
+  const ScrollToTop = () => {
+    const { pathname } = useLocation();
+  
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+  
+    return null;
+  };
+
   return (
     <>
       <Router>
+      <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />} />
           <Route path="/tvShow" element={<TvShow isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>} />
@@ -35,8 +46,8 @@ const App = () => {
           <Route path="/contactform" element={<ContactForm isDarkMode={isDarkMode} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+          <FooterComponent />
       </Router>
-      <FooterComponent />
     </>
   );
 };

@@ -1,15 +1,12 @@
-.details-container {
+.loading-container {
     margin: 40px auto;
-    padding: 20px;
     background: #ffffff;
     border-radius: 10px;
     max-width: 60%;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     text-align: center;
-    position: relative;
 }
 
-.loading,
 .error {
     font-size: 24px;
     color: #ff4d4d;
@@ -17,27 +14,27 @@
     font-weight: bold;
 }
 
-.loading-container{
-    margin: 40px auto;
-
+.loading-container {
+    margin: 20px auto;
 }
 
-.skeletonBtnmain{
+.skeletonBtnmain {
     display: flex;
-    flex-direction: row;    
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    margin: 20px;
+    margin: 0 auto;
+    max-width: 60%;
 }
 
-.skeletonbtn{
+.skeletonbtn {
     display: flex;
     width: 200px;
-    margin: 0 auto;  
+    margin-top: 10px;
 }
 
-.leftSkeleton{
+.leftSkeleton {
     text-align: left;
     width: 60%;
     margin: 0 auto;
@@ -52,7 +49,7 @@
     margin-bottom: 20px;
 }
 
-.mainBtn{
+.mainBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,12 +68,13 @@
 }
 
 .back-button:hover {
-    
+
     background-color: #b18e05;
 }
 
 .details-title {
-    font-size: 2.5em; /* Responsive font size */
+    font-size: 2.5em;
+    /* Responsive font size */
     font-weight: bold;
     color: #444;
     margin: 0;
@@ -86,15 +84,17 @@
 .details-image {
     width: 90%;
     max-width: 100%;
-    height: auto; /* Set height to auto for responsiveness */
-    aspect-ratio: 16/9; /* Maintain aspect ratio */
+    height: auto;
+    /* Set height to auto for responsiveness */
+    aspect-ratio: 16/9;
+    /* Maintain aspect ratio */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     margin: 20px 0;
 }
 
 .details-content {
-    font-size: 1.25em; /* Responsive font size */
+    font-size: 1.25em;
     color: #555;
     text-align: left;
 }
@@ -170,7 +170,8 @@ strong {
     border: none;
     cursor: pointer;
     color: black;
-    font-size: 1.5em; /* Responsive font size */
+    font-size: 1.5em;
+    /* Responsive font size */
     background-color: lightgray;
     padding: 10px 20px;
     border-radius: 10px;
@@ -188,10 +189,25 @@ strong {
     margin-left: 10px;
 }
 
+@media (max-width: 755px) {
+    
+    .loading-container {
+        margin: 40px auto;
+    }
+    .skeletonbtn {
+        width: 150px;
+        margin-top: 8px;
+    }
+
+    .imgSkeleton {
+        height: 300px !important;
+    }
+}
+
 
 @media (max-width: 600px) {
-    .details-container {
-        max-width: 90%; 
+    .loading-container {
+        max-width: 90%;
     }
 
     .details-title {
@@ -206,13 +222,26 @@ strong {
         font-size: 1em;
     }
 
-    .back-button{
-        font-size: 1em;   
+    .back-button {
+        font-size: 1em;
     }
 
     .close-button {
         font-size: 1em;
+    }
 
+    .skeletonbtn {
+        width: 120px;
+    }
+
+    .imgSkeleton {
+        height: 200px !important;
+    }
+}
+
+@media (max-width: 478px) {
+    .skeletonbtn {
+        width: 100px;
     }
 }
 
@@ -231,5 +260,13 @@ strong {
 
     .close-button {
         padding: 10px 15px;
+    }
+
+    .skeletonbtn {
+        width: 80px;
+    }
+
+    .imgSkeleton {
+        height: 100px !important;
     }
 }

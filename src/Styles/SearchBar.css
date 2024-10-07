@@ -6,8 +6,7 @@
     padding: 10px 20px;
     background-color: white;
     max-width: 600px;
-    margin: 0 auto;
-    margin-bottom: 20px;
+    margin: 4rem auto;
     flex-wrap: nowrap;
     position: relative;
 }
