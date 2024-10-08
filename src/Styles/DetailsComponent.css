@@ -14,7 +14,7 @@
 .error {
     font-size: 24px;
     color: #ff4d4d;
-    margin: 20px;
+    margin: 20px auto;
     font-weight: bold;
 }
 
@@ -210,6 +210,10 @@ strong {
 
     .video-container iframe {
         height: 350px;
+    }
+
+    .video-container{
+        border: 2px solid red;
     }
 
     .close-modal {

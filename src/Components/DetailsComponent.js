@@ -13,6 +13,7 @@ const DetailsComponent = () => {
   const [error, setError] = useState('');
   const [showDetails, setShowDetails] = useState(true);
   const [videoKey, setVideoKey] = useState(null);
+  const [videoLoading, setVideoLoading] = useState(false);
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -27,10 +28,9 @@ const DetailsComponent = () => {
         if (data.videos && data.videos.results.length > 0) {
           setVideoKey(data.videos.results[0].key);
         } else {
-          console.log("No videos found for this title");
+          setError('No videos found for this title.');
         }
       } catch (error) {
-        console.error("Error fetching details:", error.message);
         setError(error.message);
       } finally {
         setLoading(false);
@@ -42,14 +42,17 @@ const DetailsComponent = () => {
 
   const handleWatchNow = () => {
     if (videoKey) {
-      console.log("Video key is available:", videoKey);
+      setVideoLoading(true);
       setShowDetails(false);
+
+      setTimeout(() => {
+        setVideoLoading(false);
+      }, 1000);
     } else {
-      console.log("No video key available for playback.");
+      setError('No video available for playback.');
     }
   };
 
-  // Loading and error states
   if (loading) {
     return (
       <div className="loading-container">
@@ -61,9 +64,20 @@ const DetailsComponent = () => {
             <Skeleton height={20} width={'50%'} count={4} />
           </div>
           <div className='skeletonBtnmain'>
-            <Skeleton className='skeletonbtn' height={30} />
-            <Skeleton className='skeletonbtn' height={30} />
+            <Skeleton className='skeletonbtn' height={30} width={120} />
+            <Skeleton className='skeletonbtn' height={30} width={120} />
           </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (videoLoading) {
+    return (
+      <div className="loading-container">
+        <div className='skeletonContainer' style={{ padding: '20px', textAlign: 'center' }}>
+          <Skeleton className='imgSkeleton' height={400} width={'60%'} />
+          <Skeleton className='skeletonbtn' height={30} width={120} style={{margin:'20px auto'}}/>
         </div>
       </div>
     );
@@ -80,12 +94,12 @@ const DetailsComponent = () => {
           <div className="header">
             <h1 className="details-title">{details.title || details.name}</h1>
           </div>
-         <div>
-         <img
-            src={`https://image.tmdb.org/t/p/original/${details.backdrop_path}`}
-            alt={details.title || details.name}
-            className="details-image"
-          />
+          <div>
+            <img
+              src={`https://image.tmdb.org/t/p/original/${details.backdrop_path}`}
+              alt={details.title || details.name}
+              className="details-image"
+            />
           </div>
           <div className="details-content">
             <p className="overview">{details.overview}</p>
@@ -102,15 +116,8 @@ const DetailsComponent = () => {
           </div>
         </div>
       )}
-      {!showDetails && !videoKey && (
-        <div className="no-video-container">
-          <h2>No video available for this title.</h2>
-          <button className="back-button" onClick={() => setShowDetails(true)}>
-            <MdArrowBack size={24} /><span>Back to Details</span>
-          </button>
-        </div>
-      )}
-      {!showDetails && videoKey && (
+
+      {!showDetails && !videoLoading && videoKey && (
         <div className="video-container">
           <iframe
             title="Video Player"
@@ -118,10 +125,19 @@ const DetailsComponent = () => {
             frameBorder="0"
             allow="autoplay; encrypted-media"
             allowFullScreen
-            style={{ width: '100%', height: '500px' }} // Adjust size as needed
+            style={{ width: '100%', height: '500px' }}
           ></iframe>
           <button className="close-button" onClick={() => setShowDetails(true)}>
             <MdArrowBack size={24} /><span>Back</span>
+          </button>
+        </div>
+      )}
+
+      {!showDetails && !videoKey && (
+        <div className="no-video-container">
+          <h2>No video available for this title.</h2>
+          <button className="back-button" onClick={() => setShowDetails(true)}>
+            <MdArrowBack size={24} /><span>Back to Details</span>
           </button>
         </div>
       )}
