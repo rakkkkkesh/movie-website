@@ -68,7 +68,7 @@ const Home = ({isDarkMode, toggleDarkMode}) => {
       />
 
       {error && (
-        <div className="error-message" style={{ color: 'red', textAlign: 'center', margin: '20px 0' }}>
+        <div className="error-message" style={{ color: 'red', textAlign: 'center'}}>
           {error}
         </div>
       )}
@@ -87,8 +87,6 @@ const Home = ({isDarkMode, toggleDarkMode}) => {
         <div className="divider"></div>
     </>
 )}
-
-      <div className="divider"></div>
       <h2 className="heading">Popular Movies</h2>
       <div className="heading-line"></div>
       <section className="card-section">

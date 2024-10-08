@@ -1,5 +1,6 @@
 .privacy-policy-container {
     padding: 30px;
+    width: 90%;
     max-width: 800px;
     margin: 5rem auto 2rem auto;
     background-color: #fff;
@@ -50,7 +51,7 @@
 }
 
 .privacy-policy-footer p {
-     margin: 20px 0;  
+    margin: 20px 0;
 }
 
 @media (max-width: 600px) {
@@ -59,11 +60,11 @@
     }
 
     .privacy-policy-heading {
-        font-size: 28px;
+        font-size: 20px;
     }
 
     .sub-heading {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .privacy-policy-text {

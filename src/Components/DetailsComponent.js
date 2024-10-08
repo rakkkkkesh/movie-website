@@ -80,11 +80,13 @@ const DetailsComponent = () => {
           <div className="header">
             <h1 className="details-title">{details.title || details.name}</h1>
           </div>
-          <img
+         <div>
+         <img
             src={`https://image.tmdb.org/t/p/original/${details.backdrop_path}`}
             alt={details.title || details.name}
             className="details-image"
           />
+          </div>
           <div className="details-content">
             <p className="overview">{details.overview}</p>
             <p><strong>Release Date:</strong> {details.release_date || details.first_air_date}</p>

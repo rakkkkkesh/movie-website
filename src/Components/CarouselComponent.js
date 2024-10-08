@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Carousel } from 'react-responsive-carousel'; // Named import for Carousel
-import { motion } from 'framer-motion'; // Import motion from framer-motion
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Carousel CSS
+import { Carousel } from 'react-responsive-carousel';
+import { motion } from 'framer-motion';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import "../Styles/CarouselComponent.css";
 
 const CarouselComponent = ({ data, handleClick }) => {
@@ -17,32 +17,34 @@ const CarouselComponent = ({ data, handleClick }) => {
         transitionTime={700}
         emulateTouch={true}
         swipeable={true}
-        showThumbs={false} // Disable thumbnails
+        showThumbs={true}
       >
         {data && data.map((item) => {
           let title;
           if (item.original_title) {
-            title = item.original_title; // For movies
+            title = item.original_title;
           } else if (item.name) {
-            title = item.name; // For TV shows
+            title = item.name;
           } else {
-            title = "Title Not Available"; // Fallback
+            title = "Title Not Available";
           }
 
           return (
-            <Link 
-              key={item.id} 
-              to={`/details/${item.id}`} 
+            <Link
+              key={item.id}
+              to={`/details/${item.id}`}
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
               <motion.div
                 className="carousel-container"
-                initial={{ scale: 0.8 }} // Start scaled down
-                whileInView={{ scale: 1 }} // Scale to normal when in view
-                exit={{ scale: 0.8 }} // Scale down when exiting
-                transition={{ duration: 0.5, ease: "easeOut" }} // Duration and easing
-                viewport={{ once: false, amount: 0.5 }} // Trigger multiple times, at 50% view
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -50 }}
+                transition={{ duration: 1, ease: "easeInOut" }}
+                viewport={{ once: false, amount: 0.5 }}
               >
+
+
                 <img src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} alt={title} />
                 <div className="legend">
                   <h1>{title}</h1>

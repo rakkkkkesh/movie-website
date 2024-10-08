@@ -28,11 +28,11 @@ export default function ContactForm({ searchMovies, isDarkMode, toggleDarkMode }
   />
     <div className={`contact-form-container ${isDarkMode ? 'dark-mode' : ''}`}>
       <Form id="form" className={`text-center ${isDarkMode ? 'dark-mode' : ''}`} onSubmit={handleSubmit}>
-        <h2 className={`${isDarkMode ? 'text-light' : 'text-dark'}`}>Contact Us</h2>
+        <h2 className={`contactHeading${isDarkMode ? 'text-light' : 'text-dark'}`}>Contact Us</h2>
         {submitted && <Alert variant="success" className={`${isDarkMode ? 'text-light' : 'text-dark'}`}>Thank you for your message!</Alert>}
 
         <Form.Group className={`mb-3 group ${isDarkMode ? 'text-light' : 'text-dark'}`} controlId="formBasicName">
-          <Form.Label className={`${isDarkMode ? 'text-light' : 'text-dark'}`}>Name</Form.Label>
+          <Form.Label className={` formLabel${isDarkMode ? 'text-light' : 'text-dark'}`}>Name</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter your name"
@@ -44,7 +44,7 @@ export default function ContactForm({ searchMovies, isDarkMode, toggleDarkMode }
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label className={`${isDarkMode ? 'text-light' : 'text-dark'}`}>Email Address</Form.Label>
+          <Form.Label className={`formLabel ${isDarkMode ? 'text-light' : 'text-dark'}`}>Email Address</Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter your email"
@@ -56,7 +56,7 @@ export default function ContactForm({ searchMovies, isDarkMode, toggleDarkMode }
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicSubject">
-          <Form.Label className={`${isDarkMode ? 'text-light' : 'text-dark'}`}>Subject</Form.Label>
+          <Form.Label className={`formLabel ${isDarkMode ? 'text-light' : 'text-dark'}`}>Subject</Form.Label>
           <Form.Control
             type="text"
             placeholder="Subject"
@@ -68,7 +68,7 @@ export default function ContactForm({ searchMovies, isDarkMode, toggleDarkMode }
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicMessage">
-          <Form.Label className={`${isDarkMode ? 'text-light' : 'text-dark'}`}>Message</Form.Label>
+          <Form.Label className={`formLabel ${isDarkMode ? 'text-light' : 'text-dark'}`}>Message</Form.Label>
           <Form.Control
             as="textarea"
             rows={3}

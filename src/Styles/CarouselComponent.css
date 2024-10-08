@@ -32,6 +32,72 @@
     margin: 5px 0;
   }
 
+  .carousel .control-arrow {
+    width: 40px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    z-index: 10;
+    cursor: pointer;
+  }
+  
+  .carousel .control-arrow.control-prev {
+    left: 0;
+  }
+  
+  .carousel .control-arrow.control-next {
+    right: 0;
+  }  
+
+  @media (max-width: 768px) {
+    .carousel-container {
+      height: 40vh;
+    }
+
+    .legend {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  
+    .legend h1 {
+      font-size: .8rem;
+    }
+  
+    .legend p {
+      font-size: 0.6rem;
+    }
+
+    .carousel .control-arrow {
+      width: 30px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .carousel-container {
+      height: 30vh;
+    }
+
+    .legend {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  
+    .legend h1 {
+      font-size: .6rem;
+    }
+  
+    .legend p {
+      font-size: 0.4rem;
+    }
+
+    .carousel .control-arrow {
+      width: 25px;
+    }
+  }
   
   
   

@@ -44,7 +44,6 @@
 .about-container.dark-mode .about-heading,
 .about-container.dark-mode .sub-heading {
     color: white;
-
 }
 
 .about-container.dark-mode .about-text,
@@ -54,4 +53,53 @@
 
 .about-container.dark-mode .features-list {
     color: white;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        padding: 15px;
+        margin: 5rem auto 2rem auto;
+        max-width: 90%;
+    }
+
+    .about-heading {
+        font-size: 1.8rem;
+    }
+
+    .sub-heading {
+        font-size: 1.5rem;
+    }
+
+    .about-text {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container {
+        padding: 10px;
+        margin: 5rem auto 2rem auto;
+    }
+
+    .about-heading {
+        font-size: 1.5rem;
+    }
+
+    .sub-heading {
+        font-size: 1.3rem;
+    }
+
+    .about-text {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .features-list {
+        margin-left: 2px;
+    }
+
+    .features-list li {
+        font-size: 14px;
+    }
 }
